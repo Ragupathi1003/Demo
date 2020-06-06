@@ -1,0 +1,78 @@
+<div class="tskr_prof_dtls">
+    <div class="container">
+        <div class="tskr_rgstrn_outer_cont">
+            <div class="tskr_prof_dtls_inner">
+                <div class="tskr_prof_dtls_bx">
+                    <div class="tskr_prof_dtls_hdr">
+                        <div class="tskr_prof_dtls_bx_lft">
+                            <div class="tskr_prof_dtls_tle">
+                                {{'DOCUMENT LIST' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field abouts">
+                        <form name="documenttaskerForm" role="form" submit-validate novalidate>
+                            <div class="about-fields docu-list">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>(Allowed Files: JPEG, JPG, PNG, PDF, DOC, DOCX.)</label>
+                                    <ul class="document_add">
+                                        <li ng-repeat="docs in ADTC.documentLists">
+                                            <span class="sec-name">
+                                                <p>{{docs.name}}</p>
+                                            </span>
+                                            <span ng-if="false == (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).status">
+                                                <img ng-src="uploads/default/image.png" height="100" width="100"></img>
+                                            </span>
+                                            <span
+                                                ng-if="true == (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).status && (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).file_type == 'image/jpeg' || (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).file_type == 'image/png' || (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).file_type == 'image/jpg'">
+                                                <img ng-src="{{(ADTC.currenttassker.doc | checkTaskerDocs: docs._id).path}}"
+                                                    height="100" width="100"></img></span>
+                                            <span
+                                                ng-if="true == (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).status && (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).file_type == 'application/pdf'">
+                                                <img src="uploads/default/pdf.png" height="100" width="100"></img>
+                                            </span>
+                                            <span class=""
+                                                ng-if="true == (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).status && (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).file_type == 'application/octet-stream'">
+                                                <img src="uploads/default/doc.png" height="100" width="100"></img>
+                                            </span>
+                                            <div class="full_button_add">
+                                                <div class="inner_button_ad">
+                                                    <span
+                                                        ng-if="false == (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).status"
+                                                        class="doc-but"> <button ng-click="ADTC.showEditForm(docs)"
+                                                            class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                                            style="width:80px;">Add</button>
+                                                    </span>
+                                                    <span
+                                                        ng-if="true == (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).status"
+                                                        class="doc-but"> <a
+                                                            href="{{(ADTC.currenttassker.doc | checkTaskerDocs: docs._id).path}}"
+                                                            target="_blank"
+                                                            class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                                            style="width:80px;">View</a></span>
+                                                    <span
+                                                        ng-if="true == (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).status"
+                                                        class="doc-but"> <button ng-click="ADTC.showEditForm(docs)"
+                                                            class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                                            style="width:80px;">Change</button>
+                                                    </span>
+                                                    <span
+                                                        ng-if="true == (ADTC.currenttassker.doc | checkTaskerDocs: docs._id).status"
+                                                        class="doc-but-danger">
+                                                        <button ng-click="ADTC.deleteTaskerDocument(docs._id)"
+                                                            class="btn btn-rounded btn-danger"
+                                                            style="width:80px;">Delete</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<ion-content class="inventory-body" fullscreen>
+  <ion-avatar>
+    <img src="assets/icon/favicon.ico">
+  </ion-avatar>
+  <p class="login-top">Proceed with your</p>
+  <h2 class="login-top" style="margin-top: 0px;">Login</h2>
+  <form class="loginform">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Username <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" oninput="handleFirstNameValue(event)"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="password" oninput="handleLastNameValue(event)"></ion-input>
+      </ion-item>
+      <p class="forgot-btn">Forgot password?</p>
+    </ion-list>
+    <div class="ion-padding ion-login-btn">
+      <ion-button class="btn-sign" expand="block" shape="round" type="submit" [routerLink]="['/home']">LOG IN</ion-button>
+    </div>
+    <p class="OR-text">OR</p>
+    <div class="ion-padding ion-signup-btn">
+      <ion-button class="btn-sign" color="light" expand="block" shape="round" type="buttton"  [routerLink]="[ '/register']">SIGN UP</ion-button>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,50 @@
+
+  ion-avatar.md.hydrated {
+    margin-left: 5%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 35%;
+    height: 20%;
+  }
+  .login-top {
+    margin-left: 5%;
+    margin-bottom: 0px;
+    font-family: cursive;
+  }
+  .btn-sign {
+    --background: #ffc409 !important;
+    color: #ffffff;
+    width: 70%;
+    margin-left: 15%;
+  }
+  ion-label#ion-input-0-lbl,ion-label#ion-input-1-lbl {
+    color: #ffc409;
+    font-size: 20px;
+}
+ion-input.sc-ion-input-md-h.sc-ion-input-md-s.md.hydrated {
+    color: #ffffff;
+    margin-top: 8px;
+    border-radius: 5px;
+}
+ion-item.item.md.in-list.ion-focusable.item-label.item-label-stacked.hydrated.item-interactive.item-input {
+    border-bottom: 1px solid #fff;
+}
+.loginform {
+    padding: 20px;
+}
+.forgot-btn {
+    float: right;
+    font-size: 12px;
+    color: #ffc409;
+}
+.OR-text {
+    font-size: 12px;
+    color: #ffc409;
+    text-align: center;
+}
+.ion-signup-btn {
+    margin-top: -10px;
+}
+.ion-login-btn {
+    margin-bottom: -10px;
+}

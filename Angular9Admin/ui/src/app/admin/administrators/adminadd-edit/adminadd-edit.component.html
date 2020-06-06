@@ -1,0 +1,44 @@
+<nb-card>
+    <nb-card-header>
+        <button nbButton status="info" [routerLink]="['/admin/administrators/list']">List &nbsp;<i class="fas fa-list"></i></button>
+    </nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="adminForm" (ngSubmit)="formsubmit()">
+            <div class="form-group">
+                <label class="label">Name</label>
+                <input type="text" nbInput fullWidth [(ngModel)]="name" class="form-control" required name="name" formControlName="name"
+                    placeholder="Enter Name">
+                <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+                    <div *ngIf="formControls.name.errors.required">Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="label">Email</label>
+                <input type="text" nbInput fullWidth [(ngModel)]="email" required name="email" formControlName="email"
+                    placeholder="Enter Email">
+                <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+                    <div *ngIf="formControls.email.errors.required">Email is required</div>
+                    <div *ngIf="formControls.email.errors.email">Enter Valid Email Address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="label">Password</label>
+                <input type="text" nbInput fullWidth ngModel required name="password" formControlName="password"
+                    placeholder="Enter Password">
+                <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+                    <div *ngIf="formControls.password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="label">Confirm Password</label>
+                <input type="text" nbInput fullWidth ngModel required name="confirmPassword"
+                    formControlName="confirmPassword" placeholder="Confirm Password">
+                <div *ngIf="isSubmitted && formControls.confirmPassword.errors" class="help-block">
+                    <div *ngIf="formControls.confirmPassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="formControls.confirmPassword.errors.mustMatch">Passwords must match</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" nbButton status="success">Save</button>
+        </form>
+    </nb-card-body>
+</nb-card>

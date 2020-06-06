@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Wallet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="user-details">
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <img class="card-img" src="../../assets/wallet.png" />
+          </ion-col>
+          <ion-col size="8">
+            <ion-card-title>Wallet Amount</ion-card-title>
+            <ion-card-subtitle>Available Balance</ion-card-subtitle>
+            <ion-card-subtitle>Rs. <span>{{10 | currency:'INR':true}} /-</span></ion-card-subtitle>
+            <ion-button (click)="presentModal()">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+    <ion-list-header>
+      Transaction
+    </ion-list-header>
+    <ion-item *ngFor="let item of items; let i = index">
+      <ion-avatar slot="start">
+        <img src="../../assets/phone.png">
+      </ion-avatar>
+      <ion-label>
+        <h5 class="list-amt">{{item.amount | currency:'INR':true}}</h5>
+        <h2>Pay type</h2>
+        <p>Description of payment</p>
+        <p class="list-date">{{item.date | date :'dd MMM yyyy'}}</p>
+        <h5 class="list-amt" *ngIf="item.creditdebit == 'Credit'">{{item.creditdebit}}
+          <ion-icon style="margin-bottom: -6px;margin-left: 4px;font-size: 20px;" name="add-circle-outline" color="success"></ion-icon>
+        </h5>
+        <h5 class="list-amt" *ngIf="item.creditdebit == 'Debit'">{{item.creditdebit}}
+          <ion-icon style="margin-bottom: -6px;margin-left: 4px;font-size: 20px;" name="remove-circle-outline" color="primary"></ion-icon>
+        </h5>
+        <h5 class="list-amt" *ngIf="item.creditdebit == 'Failed'">{{item.creditdebit}}
+          <ion-icon style="margin-bottom: -6px;margin-left: 4px;font-size: 20px;" name="alert-circle-outline" color="danger"></ion-icon>
+        </h5>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

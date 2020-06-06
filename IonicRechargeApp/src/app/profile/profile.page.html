@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="profile-img-card">
+    <ion-avatar>
+      <img src="../../assets/profile.png" />
+    </ion-avatar>
+    <ion-card-header>
+      <ion-card-subtitle>Hello</ion-card-subtitle>
+      <ion-card-title>Ragupathi Ram</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+    <ion-list-header>
+      Transaction
+    </ion-list-header>
+    <ion-item>
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-label *ngIf="emaildata == 0">
+        <ion-icon name="create-outline" class="edit-icon" (click)="emaildata = 1" color="primary"></ion-icon>
+        <h2>ragupathi.ram@gmail.com</h2>
+      </ion-label>
+      <ion-label *ngIf="emaildata == 1">
+        <ion-icon name="close-outline" class="edit-save-icon" color="danger" (click)="emaildata = 0"></ion-icon>
+        <ion-icon name="checkmark-outline" class="edit-save-icon" color="success"></ion-icon>
+        <input type="text" name="email" value="ragupathi.ram@gmail.com" placeholder="Enter email">
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="call-outline"></ion-icon>
+      <ion-label *ngIf="mobiledata == 0">
+        <ion-icon name="create-outline" class="edit-icon" (click)="mobiledata = 1" color="primary"></ion-icon>
+        <h2>9874563210</h2>
+      </ion-label>
+      <ion-label *ngIf="mobiledata == 1">
+        <ion-icon name="close-outline" class="edit-save-icon" color="danger" (click)="mobiledata = 0"></ion-icon>
+        <ion-icon name="checkmark-outline" class="edit-save-icon" color="success"></ion-icon>
+        <input type="text" name="mobile" value="9874563210" placeholder="Enter mobile">
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="eye-off-outline"></ion-icon>
+      <ion-label *ngIf="passworddata == 0">
+        <ion-icon name="create-outline" class="edit-icon" (click)="passworddata = 1" color="primary"></ion-icon>
+        <h2>****************</h2>
+      </ion-label>
+      <ion-label *ngIf="passworddata == 1">
+        <ion-icon name="close-outline" class="edit-save-icon" color="danger" (click)="passworddata = 0"></ion-icon>
+        <ion-icon name="checkmark-outline" class="edit-save-icon" color="success"></ion-icon>
+        <input type="text" name="mobile" value="9874563210" placeholder="Enter password">
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="wallet-outline"></ion-icon>
+      <ion-label>
+        <ion-icon name="add-circle-outline" class="edit-icon" (click)="presentModal()" color="success"></ion-icon>
+        <h2>{{2 | currency:'INR':true}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

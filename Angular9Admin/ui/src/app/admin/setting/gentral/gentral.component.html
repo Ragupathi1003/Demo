@@ -1,0 +1,147 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header>
+                Gentral Settings
+            </nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="settingsForm" (ngSubmit)="formsubmit()" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="label">Site Title</label>
+                        <input type="text" nbInput fullWidth class="form-control" required name="site_title"
+                            placeholder="Enter Site Title" formControlName="site_title" [(ngModel)]="settings.site_title"
+                            [status]="formControls.site_title.dirty ? (formControls.site_title.invalid  ? 'danger' : 'success') : 'basic'">
+                        <div *ngIf="isSubmitted && formControls.site_title.errors" class="help-block">
+                            <div *ngIf="formControls.site_title.errors.required">Site Title is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Site Url</label>
+                        <input type="text" nbInput fullWidth class="form-control" required name="site_url"
+                            placeholder="Enter Site Url" formControlName="site_url" [(ngModel)]="settings.site_url"
+                            [status]="formControls.site_url.dirty ? (formControls.site_url.invalid  ? 'danger' : 'success') : 'basic'">
+                        <div *ngIf="isSubmitted && formControls.site_url.errors" class="help-block">
+                            <div *ngIf="formControls.site_url.errors.required">Site Url is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Location Address</label>
+                        <input type="text" nbInput fullWidth class="form-control" required name="siteaddress"
+                            autocorrect="off" autocapitalize="off" spellcheck="off" placeholder="search for location"
+                            #search formControlName="siteaddress" [(ngModel)]="settings.siteaddress"
+                            [status]="formControls.siteaddress.dirty ? (formControls.siteaddress.invalid  ? 'danger' : 'success') : 'basic'">
+                        <div *ngIf="isSubmitted && formControls.siteaddress.errors" class="help-block">
+                            <div *ngIf="formControls.siteaddress.errors.required">Location Address is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Email Address</label>
+                        <input type="text" nbInput fullWidth class="form-control" required name="email_address"
+                            placeholder="Enter Email Address" formControlName="email_address" [(ngModel)]="settings.email_address"
+                            [status]="formControls.email_address.dirty ? (formControls.email_address.invalid  ? 'danger' : 'success') : 'basic'">
+                        <div *ngIf="isSubmitted && formControls.email_address.errors" class="help-block">
+                            <div *ngIf="formControls.email_address.errors.required">Email Address is required</div>
+                            <div *ngIf="formControls.email_address.errors.email">Email should be the real one!</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Admin Commission</label>
+                        <input type="number" nbInput fullWidth class="form-control" required name="admin_commission"
+                            placeholder="Enter Admin Commission" formControlName="admin_commission" [(ngModel)]="settings.admin_commission"
+                            [status]="formControls.admin_commission.dirty ? (formControls.admin_commission.invalid  ? 'danger' : 'success') : 'basic'">
+                        <div *ngIf="isSubmitted && formControls.admin_commission.errors" class="help-block">
+                            <div *ngIf="formControls.admin_commission.errors.required">Admin Commission is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Service Tax</label>
+                        <input type="number" nbInput fullWidth class="form-control" required name="service_tax"
+                            placeholder="Enter Service Tax" formControlName="service_tax" [(ngModel)]="settings.service_tax"
+                            [status]="formControls.service_tax.dirty ? (formControls.service_tax.invalid  ? 'danger' : 'success') : 'basic'">
+                        <div *ngIf="isSubmitted && formControls.service_tax.errors" class="help-block">
+                            <div *ngIf="formControls.service_tax.errors.required">Service Tax is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Tasker Distance</label>
+                        <input type="number" nbInput fullWidth class="form-control" required name="tasker_distance"
+                            placeholder="Enter Tasker Distance" formControlName="tasker_distance" [(ngModel)]="settings.tasker_distance"
+                            [status]="formControls.tasker_distance.dirty ? (formControls.tasker_distance.invalid  ? 'danger' : 'success') : 'basic'">
+                        <div *ngIf="isSubmitted && formControls.tasker_distance.errors" class="help-block">
+                            <div *ngIf="formControls.tasker_distance.errors.required">Tasker Distance is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Tasker Radius</label>
+                        <input type="number" nbInput fullWidth class="form-control" required name="tasker_radius"
+                            placeholder="Enter Tasker Radius" formControlName="tasker_radius" [(ngModel)]="settings.tasker_radius"
+                            [status]="formControls.tasker_radius.dirty ? (formControls.tasker_radius.invalid  ? 'danger' : 'success') : 'basic'">
+                        <div *ngIf="isSubmitted && formControls.tasker_radius.errors" class="help-block">
+                            <div *ngIf="formControls.tasker_radius.errors.required">Tasker Radius is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Map Api</label>
+                        <input type="text" nbInput fullWidth class="form-control" required name="map_api"
+                            placeholder="Enter Map Api" formControlName="map_api" [(ngModel)]="settings.map_api"
+                            [status]="formControls.map_api.dirty ? (formControls.map_api.invalid  ? 'danger' : 'success') : 'basic'">
+                        <div *ngIf="isSubmitted && formControls.map_api.errors" class="help-block">
+                            <div *ngIf="formControls.map_api.errors.required">Map Api is required</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="label" for="logo">Logo</label>
+                                <input type="file" fullWidth class="form-control-file" required id="logo" name="logo"
+                                    (change)="imageschange($event,'logo')" #logofileInput>
+                            </div>
+                            <div *ngIf="logo">
+                                <img class="priviewimg" [src]="transform(logo)" alt="logo.png">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="label" for="light_logo">Light Logo</label>
+                                <input type="file" fullWidth id="light_logo" class="form-control-file" required
+                                    name="light_logo" (change)="imageschange($event,'light_logo')" #light_logofileInput>
+                            </div>
+                            <div *ngIf="light_logo">
+                                <img class="priviewimg" [src]="transform(light_logo)" alt="light_logo.png">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="label" for="favicon">Favicon</label>
+                                <input type="file" fullWidth id="favicon" class="form-control-file" required
+                                    name="favicon" (change)="imageschange($event,'favicon')" #faviconfileInput>
+                            </div>
+                            <div *ngIf="favicon">
+                                <img class="priviewimg" [src]="transform(favicon)" alt="favicon.png">
+                            </div>
+                        </div>
+                    </div>
+                    <button 
+                    [nbSpinner]="isSubmitted" nbSpinnerStatus="danger"
+                    [disabled]="isSubmitted"
+                    type="submit" 
+                    class="btn btn-success submit-btn"
+                    nbButton 
+                    status="success"
+                    >Save &nbsp;<i
+                            class="fas fa-arrow-right"></i></button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

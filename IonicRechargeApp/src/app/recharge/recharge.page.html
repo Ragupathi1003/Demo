@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Recharge</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card class="user-details">
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <img class="card-img" src="../../assets/profile.png" />
+          </ion-col>
+          <ion-col size="8">
+            <ion-card-title>Ragupathi Ramar</ion-card-title>
+            <ion-card-subtitle>Available Balance</ion-card-subtitle>
+            <ion-card-subtitle>Rs. <span>{{10 | currency:'INR':true}} /-</span></ion-card-subtitle>
+            <ion-button (click)="presentModal()" ><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-grid class="content-list-grid">
+    <ion-row>
+      <ion-col>
+        <div>
+          <img src="assets/recharge/recharge-phone.png" alt="phone">
+          <span>Prepaid</span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <img src="assets/recharge/recharge-phone-post.png" alt="phone">
+          <span>Postpaid</span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <img src="assets/recharge/landline.png" alt="Landline">
+          <span>Landline</span>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>
+          <img src="assets/recharge/data-card.png" alt="Data card">
+          <span>Data card</span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <img src="assets/recharge/dth.png" alt="DTH">
+          <span>DTH</span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <img src="assets/recharge/electricity.png" alt="Electricity">
+          <span>Electricity</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

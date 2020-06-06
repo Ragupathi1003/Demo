@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="new-background-color">
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title slot="start">Home</ion-title>
+    <ion-icon slot="end" color="dark" name="notifications-outline"></ion-icon>
+    <ion-icon slot="end" color="dark" name="log-out-outline" (click)="presentAlertConfirm()"></ion-icon>
+    <ion-badge color="danger" id="cart-badge">123</ion-badge>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="user-details">
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <img class="card-img" src="assets/icon/favicon.ico" />
+          </ion-col>
+          <ion-col size="8">
+            <ion-card-title>Ragupathi Ramar</ion-card-title>
+            <ion-card-subtitle>Available Balance</ion-card-subtitle>
+            <ion-card-subtitle>Rs. <span>{{10 | currency:'INR':true}} /-</span></ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+    <ion-slide *ngFor="let item of PImage;let i =index">
+      <ion-card>
+      <ion-card-content>
+        <ion-img [src]="item.URL"></ion-img>
+        <h2 class="slide-h2"> <b>Slide title {{i}} </b></h2>
+        <h4 class="slide-h4">Slide summary {{i}}</h4>
+      </ion-card-content>
+    </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col routerDirection="root" [routerLink]="['/recharge']">
+        <div>
+          <img src="assets/phone.png" alt="phone img">
+          <span>Recharge</span>
+        </div>
+      </ion-col>
+      <ion-col routerDirection="root" [routerLink]="['/wallet']">
+        <div>
+          <img src="assets/wallet.png" alt="phone img">
+          <span>Wallet   </span>
+        </div>
+      </ion-col>
+      <ion-col routerDirection="root" [routerLink]="['/profile']">
+        <div>
+          <img src="assets/profile.png" alt="phone img">
+          <span>Account</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
